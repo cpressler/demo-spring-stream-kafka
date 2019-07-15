@@ -1,0 +1,37 @@
+info:
+  component: Demo Kafka Service
+
+server:
+  port: ${PORT:8080}
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKERS:localhost}
+      bindings:
+        input:
+          destination: demo.topic
+          content-type: application/text
+          group: demoConsumer
+          durable: true
+        output:
+          destination: demo.topic
+  kafka:
+    admin:
+      fail-fast: true
+      properties:
+        request.timeout.ms: 10000  # time to wait for broker to connect if your see this error [AdminClient] Broker may not be available
+        retries: 0  # how many times to retry
+
+    listener:
+      poll-timeout: 1000
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.softvision: DEBUG
+

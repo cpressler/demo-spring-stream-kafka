@@ -1,0 +1,57 @@
+<!--
+
+    Copyright (C) 2017 Allegiant Travel Company - All Rights Reserved
+
+    This file is subject to the terms and conditions defined in
+    file 'LICENSE.txt', which is part of this source code package.
+
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Airports Web Service</title>
+
+        <style>
+            table {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th {
+                text-align: left;
+                padding: 3px;
+                border-bottom: 1px solid black;
+            }
+            td {
+                padding: 3px;
+            }
+            tr:nth-child(even) {
+                background-color: #e6e6e6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Demo Kafka Service</h1>
+        <h2>Version: @project.version@</h2>
+<!--        <h2>Build DateTime: @build.timestamp@</h2>-->
+<!--        <h2>Source Commit: @build.number@</h2>-->
+
+        <h2><a href="swagger-ui.html">Swagger</a></h2>
+
+        <h2>Environment Info:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Property Name</th>
+              <th>Property Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="prop:${applicationProperties}">
+              <td th:text="${prop.key}"></td>
+              <td th:text="${prop.value}"></td>
+            </tr>
+          </tbody>
+        </table>
+        
+    </body>
+</html>
