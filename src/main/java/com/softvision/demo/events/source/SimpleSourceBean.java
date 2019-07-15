@@ -9,6 +9,9 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * Example of a default "output" named channel
+ */
 @Component
 public class SimpleSourceBean {
     private Source source;
@@ -21,7 +24,7 @@ public class SimpleSourceBean {
     }
 
     public void publishMessage(String message){
-       logger.info("Sending JMS message {} ", message);
+       logger.info("SimpleSourceBean:Sending JMS message {} ", message);
 
         source.output().send(MessageBuilder.withPayload(message).build());
     }

@@ -7,17 +7,54 @@ server:
 spring:
   cloud:
     stream:
-      kafka:
-        binder:
-          brokers: ${KAFKA_BROKERS:localhost}
+#      kafka:
+#        binder:
+#          brokers: ${KAFKA_BROKERS:localhost}
       bindings:
         input:
           destination: demo.topic
           content-type: application/text
           group: demoConsumer
-          durable: true
+          binder: kafka1
         output:
           destination: demo.topic
+          binder: kafka1
+        customInput:
+          destination: demo.custom.topic
+          content-type: application/text
+          group: demoCustomConsumer
+          binder: kafka1
+        customOutput:
+          destination: demo.custom.topic
+          binder: kafka1
+        customInput2:
+          destination: demo.custom2.topic
+          content-type: application/text
+          group: demoCustom2Consumer
+          binder: kafka1
+        customOutput2:
+          destination: demo.custom2.topic
+          binder: kafka1
+      binders:
+        kafka1:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: ${KAFKA_BROKERS:localhost}
+#       this allows multiple bindings to more that one cluster group
+#        kafka2:
+#          type: kafka
+#          environment:
+#            spring:
+#              cloud:
+#                stream:
+#                  kafka:
+#                    binder:
+#                      brokers: ${KAFKA2_BROKERS:localhost}
   kafka:
     admin:
       fail-fast: true

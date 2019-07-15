@@ -1,4 +1,5 @@
-version: '2'
+# Runs a cluster node of (3) zookeeper and kafka
+version: '3.7'
 services:
   zookeeper-1:
     image: confluentinc/cp-zookeeper:latest

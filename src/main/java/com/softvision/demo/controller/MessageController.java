@@ -30,7 +30,7 @@ public class MessageController {
     })
     @RequestMapping(value="/test",method = RequestMethod.GET)
     public String getMessage( ) {
-        logger.debug("getMessage");
+        logger.info("MessageController:getMessage");
 
         String test = "test string";
         demoMessageService.sendMessage(test);
@@ -43,7 +43,27 @@ public class MessageController {
     })
     @RequestMapping(value="/test",method = RequestMethod.PUT)
     public void sendMessage( @RequestBody String  testStr) {
-        logger.debug("sendMessage {}" , testStr);
+        logger.info("MessageController:sendMessage {}" , testStr);
         demoMessageService.sendMessage(testStr);
+    }
+
+    @ApiOperation(value= "Send a message to topic",  consumes = "application/text", produces = "application/text")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "There was an errors")
+    })
+    @RequestMapping(value="/test/custom",method = RequestMethod.PUT)
+    public void sendMessageCustomOutput( @RequestBody String  testStr) {
+        logger.info("MessageController:sendMessageCustomOutput {}" , testStr);
+        demoMessageService.sendMessageCustomOutput(testStr);
+    }
+
+    @ApiOperation(value= "Send a message to topic",  consumes = "application/text", produces = "application/text")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "There was an errors")
+    })
+    @RequestMapping(value="/test/custom2",method = RequestMethod.PUT)
+    public void sendMessageCustomOutput2( @RequestBody String  testStr) {
+        logger.info("MessageController:sendMessageCustomOutput2 {}" , testStr);
+        demoMessageService.sendMessageCustomOutput2(testStr);
     }
 }
