@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Allegiant Travel Company - All Rights Reserved
+ * Copyright (C) - All Rights Reserved
  *
  * This file is subject to the terms and conditions defined in
  * file 'LICENSE.txt', which is part of this source code package.

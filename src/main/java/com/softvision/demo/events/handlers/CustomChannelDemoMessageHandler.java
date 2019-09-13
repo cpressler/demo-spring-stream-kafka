@@ -27,7 +27,6 @@ public class CustomChannelDemoMessageHandler {
         logger.info("CustomChannelDemoMessageHandler:Received a message ->>>>  {} " ,  message);
 
     }
-
 }
 
 

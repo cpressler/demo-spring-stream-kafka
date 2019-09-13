@@ -24,7 +24,6 @@ import org.springframework.stereotype.Component;
 @EnableBinding(CustomOutput.class)
 public class CustomSourceBean {
 
-
     CustomOutput customOutput;
 
     private static final Logger logger = LoggerFactory.getLogger(CustomSourceBean.class);

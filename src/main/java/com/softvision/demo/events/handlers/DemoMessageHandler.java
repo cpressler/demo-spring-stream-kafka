@@ -17,7 +17,6 @@ public class DemoMessageHandler {
         logger.info("DemoMessageHandler:Received a message ->>>>  {} " ,  message);
 
     }
-
 }
 
 
