@@ -24,7 +24,7 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Germantown.RELEASE</spring-cloud.version>
 
-        <version.springfox>2.9.2</version.springfox>
+        <version.springfox>2.10.0</version.springfox>
         <version.swagger>1.5.18</version.swagger>
 	</properties>
 
